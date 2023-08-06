@@ -21,11 +21,6 @@ function App() {
         </Col>
     </Row>
   </Container>
-       {/* <Navbar/> 
-       <Routes>
-          <Route path='/' element={<CaracteresForm/>} />
-          <Route path='/sueldos' element={<Sueldos/>}/>
-       </Routes> */}
     </>
   )
 }
