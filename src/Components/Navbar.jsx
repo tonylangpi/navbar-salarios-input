@@ -10,8 +10,8 @@ const Navegacion = () => {
       <Navbar.Toggle aria-controls="basic-navbar-nav" />
       <Navbar.Collapse id="basic-navbar-nav">
         <Nav className="me-auto text-white">
-          <Nav.Link  href="/sueldos">SALARIOS</Nav.Link>
-          <Nav.Link href="/">INPUT</Nav.Link>
+          <Nav.Link  to={"/salarios"}>SALARIOS</Nav.Link>
+          <Nav.Link to={"/"}>INPUT</Nav.Link>
         </Nav>
       </Navbar.Collapse>
     </Container>
