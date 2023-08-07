@@ -17,7 +17,7 @@ const Caracteres = () => {
     <>
        <Card className="m-3" style={{ width: "18rem" }}>
         <Card.Body>
-          <Card.Title>Validar un input con onchange</Card.Title>
+          <Card.Title>Validar un input con onchange error menor a 5 caracteres</Card.Title>
             <Form>
               <Form.Group
                 className="mb-3"
