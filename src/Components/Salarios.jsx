@@ -1,7 +1,8 @@
 import { useState } from "react";
 import Form from "react-bootstrap/Form";
 import Card from "react-bootstrap/Card";
-import Alert from 'react-bootstrap/Alert';
+import Button from 'react-bootstrap/Button';
+import Modal from 'react-bootstrap/Modal';
 const Salarios = () => {
    const [sueldo, setSueldo] = useState(0); 
    
@@ -9,7 +10,8 @@ const Salarios = () => {
    const [aumento, setAumento] = useState(0);
    const [igss, setIgss] = useState(0.0483);
    const [msg, setMsg] = useState("");
-
+   const [show, setShow] = useState(false);
+   const handleClose = () => setShow(false);
    const calculos = () => {
        if(!sueldo || !aumento || !descuento){
         setMsg("el sueldo debe ser mayor a 0");
@@ -19,6 +21,9 @@ const Salarios = () => {
             let masAumento = menosCuotaLaboral + aumento;
             let menosDecuento = masAumento - descuento; 
              setMsg(`El sueldo calculado total es: Q.${menosDecuento}`);
+             setTimeout(function(){
+             setShow(true)
+          }, 2000);
        }
    }
   return (
@@ -42,9 +47,12 @@ const Salarios = () => {
         </Card.Body>
       </Card>
       {
-        msg && ( <Alert variant="success">
-      <Alert.Heading>DETALLE DEL CALCULO EN EL SUELDO</Alert.Heading>
-      <p>
+        msg && ( <Modal show={show} onHide={handleClose}>
+        <Modal.Header closeButton>
+          <Modal.Title>Detalles del calculo del sueldo</Modal.Title>
+        </Modal.Header>
+        <Modal.Body>
+        <p>
         SUELDO ORIGINAL : Q {sueldo} ,
       </p>
       <p>
@@ -59,8 +67,13 @@ const Salarios = () => {
       <p className="font-weight-bold">
         {msg}
       </p>
-      <hr />
-    </Alert>)
+        </Modal.Body>
+        <Modal.Footer>
+          <Button variant="secondary" onClick={handleClose}>
+            OK
+          </Button>
+        </Modal.Footer>
+      </Modal>)
       }
     </>
   );
