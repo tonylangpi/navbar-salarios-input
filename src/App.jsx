@@ -17,7 +17,7 @@ function App() {
     <Routes>
           <Route path='/' element={<CaracteresForm/>} />
           <Route path='/sueldos' element={<Sueldos/>}/>
-       </Routes>
+    </Routes>
         </Col>
     </Row>
   </Container>
